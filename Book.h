@@ -42,7 +42,7 @@ public:
     // Returns the genre of the book, one of HORROR, FANTASY, SCI_FI, NON_FICTION, MYSTERY, ROMANCE, OTHER
     Genre getBookGenre();
 
-    // Returns the details of the book in the form "BookID | BookName | BookAuthor"
+    // Returns the details of the book in the form "BookID | BookName | BookAuthor | BookGenre"
     string getDetails();
 
     // setters

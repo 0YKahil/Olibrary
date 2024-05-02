@@ -11,6 +11,26 @@ implementation of Book
 // initialize BookID with 0
 int Book::_currentBookID = 0;
 
+
+/*
+ * Helper Function to convert Genre enumeration values to String by mapping it
+ * 
+ * @returns: Genre as string
+ */
+
+static const string genreToString(const Genre genre) {
+    switch (genre) {
+    case HORROR: return "HORROR";
+    case FANTASY: return "FANTASY";
+    case SCI_FI: return "SCI-FI";
+    case NON_FICTION: return "NON-FICTION";
+    case MYSTERY: return "MYSTERY";
+    case ROMANCE: return "ROMANCE";
+    case OTHER: return "OTHER";
+    default: return "UNKNOWN";
+    }
+}
+
 Book::Book(string name, string author, Genre genre) {
     _bookID = ++_currentBookID;
     _name = name;
@@ -24,6 +44,7 @@ Book::Book() {
     _name = "BOOK_";
     _author = "";
     _genre = OTHER;
+    _borrowed = false;
 }
 
 string Book::getBookName() {
@@ -47,7 +68,7 @@ int Book::getBookID() {
 }
 
 string Book::getDetails() {
-    return to_string(_bookID) + " | " + _name + " | " + _author;
+    return to_string(_bookID) + " | " + _name + " | " + _author + " | " + genreToString(_genre);
 }
 
 void Book::setBorrowed() {

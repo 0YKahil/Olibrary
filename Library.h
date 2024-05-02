@@ -42,19 +42,19 @@ public:
 
     /*
     * EFFECTS: returns all the names of the books in the library with their ids
-    * in the format ID | NAME | AUTHOR
+    * in the format ID | NAME | AUTHOR | GENRE
     */
     vector<string> viewAllBooks();
 
     /*
     * EFFECTS: returns all the names of the non borrowed books in the library with their ids
-    * in the format ID | NAME | AUTHOR
+    * in the format ID | NAME | AUTHOR | GENRE
     */
     vector<string> viewAvailableBooks();
 
     /*
     * EFFECTS: returns all the names of the books of the given genre in the library with their ids
-    * in the format ID | NAME | AUTHOR
+    * in the format ID | NAME | AUTHOR | GENRE
     */
     vector<string> viewFilteredBooks(Genre genre);
 
@@ -65,12 +65,12 @@ public:
     vector<string> viewAvailableFilteredBooks(Genre genre);
 
     /*
-    * EFFECTS: returns all the books with the given name in the format ID | NAME| AUTHOR
+    * EFFECTS: returns all the books with the given name in the format ID | NAME | AUTHOR | GENRE
     */
     vector<string> getBookByName(string name);
 
     /*
-    * EFFECTS: returns all the books with the given author in the format ID | NAME| AUTHOR
+    * EFFECTS: returns all the books with the given author in the format ID | NAME | AUTHOR | GENRE
     */
     vector<string> viewBookByAuthor(string author);
 
