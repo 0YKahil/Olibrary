@@ -76,6 +76,12 @@ void Library::addBook(Book book) {
     _bookList.push_back(book.getDetails());
 }
 
+void Library::addBooks(vector<Book> books) {
+    for (Book b : books) {
+        this->addBook(b);
+    }
+}
+
 void Library::addUser(User user) {
     _users.insert({ user.getUserID(), user });
 }

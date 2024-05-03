@@ -4,10 +4,35 @@
 
 
 
+// Sets up sample books for the library to use once instantiated
+static vector<Book> setupBooks() {
+    vector<Book> initBooks = {
+    Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", FANTASY),
+    Book("It", "Stephen King", HORROR),
+    Book("And Then There Were None", "Agatha Christie", MYSTERY),
+    Book("Percy Jackson and the Olympians: The Lightning thief", "Rick Riordan", FANTASY),
+    Book("Discrete Mathematics with Applications", "Susanna S. Epp", NON_FICTION),
+    Book("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", NON_FICTION),
+    Book("Frankenstein", "Mary Shelley", SCI_FI),
+    Book("Pride and Prejudice", "Jane Austen", ROMANCE),
+    Book("The Hobbit", "J. R. R. Tolkien", FANTASY),
+    Book("The Lord of the Rings", "J. R. R. Tolkien", FANTASY),
+    Book("Dracula", "Bram Stoker", HORROR),
+    Book("The Shining", "Stephen King", HORROR),
+    Book("Gone Girl", "Gillian Flynn", MYSTERY),
+    Book("Murder on the Orient Express", "Agatha Christie", MYSTERY),
+    Book("The Love Hypothesis", "Ali Hazelwood", ROMANCE)
+    };
+    return initBooks;
+}
+
 Olibrary::Olibrary(QWidget *parent)
     : QMainWindow(parent), lib(Library::getInstance())
 {
-    lib.addBook(Book("Harry Potter and The Philisopher's Stone", "J.K. Rowling", FANTASY));
+    lib.addBooks(setupBooks());
+    lib.getBookByID(15)->setBorrowed();
+    lib.getBookByID(14)->setBorrowed();
+    lib.getBookByID(13)->setBorrowed();
     ui.setupUi(this);
 }
 
@@ -29,8 +54,8 @@ void Olibrary::resizeEvent(QResizeEvent* event) {
 }
 
 
-void Olibrary::on_viewAllButton_clicked() {
-    auto bookDetails = lib.viewAllBooks();
+void Olibrary::setupTableFromList(vector<string> books) {
+    vector<string> bookDetails = books;
     ui.booksTable->clearContents();
     ui.booksTable->setRowCount(0); // clear existing rows
     ui.booksTable->setColumnCount(4); // ID, Name, Author, Genre columns
@@ -48,13 +73,24 @@ void Olibrary::on_viewAllButton_clicked() {
         for (int col = 0; col < book.size(); ++col) {
             ui.booksTable->setItem(row, col, new QTableWidgetItem(book.at(col).trimmed()));
         }
-        
+
     }
-    
+
     setupTableColumns();
-    // ui.booksTable->resizeColumnsToContents();
     ui.booksTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
+
+void Olibrary::on_viewAllButton_clicked() {
+    setupTableFromList(lib.viewAllBooks());
+
+}
+
+void Olibrary::on_viewAvailableButton_clicked() {
+    setupTableFromList(lib.viewAvailableBooks());
+}
+
+
+
 
 
 

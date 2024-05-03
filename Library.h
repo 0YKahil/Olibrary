@@ -17,61 +17,67 @@ public:
     }
 
     /*
-    * MODIFIES: this
-    * EFFECTS: adds a book to the library if its id does not already exist
-    */
+     * MODIFIES: this
+     * EFFECTS: adds a book to the library if its id does not already exist
+     */
     void addBook(Book book);
 
     /*
-    * MODIFIES: this
-    * EFFECTS: adds a user to the library if its id does not already exist
-    */
+     * MODIFIES: this
+     * EFFECTS: adds multiple books to the library **this function is used ONLY in the beginning of the program**
+     */
+    void addBooks(vector <Book> books);
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds a user to the library if its id does not already exist
+     */
     void addUser(User user);
 
     /*
-    * MODIFIES: this
-    * EFFECTS: removes a book from the library if it exists
-    */
+     * MODIFIES: this
+     * EFFECTS: removes a book from the library if it exists
+     */
     void removeBook(Book book);
 
     /*
-    * MODIFIES: this
-    * EFFECTS: removes a user from the library if it exists
-    */
+     * MODIFIES: this
+     * EFFECTS: removes a user from the library if it exists
+     */
     void removeUser(User user);
 
     /*
-    * EFFECTS: returns all the names of the books in the library with their ids
-    * in the format ID | NAME | AUTHOR | GENRE
-    */
+     * EFFECTS: returns all the names of the books in the library with their ids
+     * in the format ID | NAME | AUTHOR | GENRE
+     */
     vector<string> viewAllBooks();
 
     /*
-    * EFFECTS: returns all the names of the non borrowed books in the library with their ids
-    * in the format ID | NAME | AUTHOR | GENRE
-    */
+     * EFFECTS: returns all the names of the non borrowed books in the library with their ids
+     * in the format ID | NAME | AUTHOR | GENRE
+     */
     vector<string> viewAvailableBooks();
 
     /*
-    * EFFECTS: returns all the names of the books of the given genre in the library with their ids
-    * in the format ID | NAME | AUTHOR | GENRE
-    */
+     * EFFECTS: returns all the names of the books of the given genre in the library with their ids
+     * in the format ID | NAME | AUTHOR | GENRE
+     */
     vector<string> viewFilteredBooks(Genre genre);
 
     /*
-    * EFFECTS: returns all the names of the available books of the given genre in the library with their ids
-    * in the format ID | NAME | AUTHOR
-    */
+     * EFFECTS: returns all the names of the available books of the given genre in the library with their ids
+     * in the format ID | NAME | AUTHOR
+     */
     vector<string> viewAvailableFilteredBooks(Genre genre);
 
     /*
-    * EFFECTS: returns all the books with the given name in the format ID | NAME | AUTHOR | GENRE
-    */
+     * EFFECTS: returns all the books with the given name in the format ID | NAME | AUTHOR | GENRE
+     */
     vector<string> getBookByName(string name);
 
     /*
-    * EFFECTS: returns all the books with the given author in the format ID | NAME | AUTHOR | GENRE
-    */
+     * EFFECTS: returns all the books with the given author in the format ID | NAME | AUTHOR | GENRE
+     */
     vector<string> viewBookByAuthor(string author);
 
 
