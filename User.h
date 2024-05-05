@@ -42,12 +42,17 @@ public:
     */
     void addBook(Book book);
 
+    // Adds a copy of the book pointer's book to the account and sets the original book to borrowed
+    void addBook(Book* book);
+
     /*
     MODIFIES: this
-    EFFECTS: removes given book from books_
+    EFFECTS: removes given book from _books
     */
     void removeBook(Book book);
 
+    // removes the book with the given id from _books and returns the id
+    int removeBook(int id);
 
 private:
     string _userID;

@@ -15,7 +15,7 @@ public:
 private:
     Ui::OlibraryClass ui;
     Library& lib;
-    User admin;
+    User currentUser;
 
 protected:
     /*
@@ -48,7 +48,7 @@ private slots:
     /*
      * Displays all the available books in the Library instance once the "View Available Books" button is pressed,
      * seperates the details by there splits "|" and places them into their corresponding columns.
-     * (Available meaning the book.isborrowed() = false;
+     * (Available meaning the book.isborrowed() = false;)
      */
     void on_viewAvailableButton_clicked();
 
@@ -58,4 +58,10 @@ private slots:
      */
     void on_viewFilteredButton_clicked();
 
+
+    /*
+     * Adds the Books selected in the book table, if they are available, to the current User's account
+     * and refreshes the table
+     */
+    void on_addButton_clicked();
 };

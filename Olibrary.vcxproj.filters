@@ -21,6 +21,12 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Source Files\Source Code">
+      <UniqueIdentifier>{640d3003-e768-4347-a5d2-26918f20522b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{ae2c4698-6407-44c5-8795-21fd8a933984}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="olibrary.qrc">
@@ -32,9 +38,6 @@
     <QtMoc Include="olibrary.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="olibrary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <None Include="Olibrary.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -53,16 +56,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Book.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Source Code</Filter>
     </ClCompile>
     <ClCompile Include="Library.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Source Code</Filter>
     </ClCompile>
     <ClCompile Include="User.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Source Code</Filter>
     </ClCompile>
     <ClCompile Include="filter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="olibrary.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="successdialog.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,9 +89,15 @@
     <QtMoc Include="filter.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="successdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="filter.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="successdialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

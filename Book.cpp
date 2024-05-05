@@ -48,6 +48,15 @@ Book::Book() {
     _borrowed = false;
 }
 
+Book::Book(const Book& other) {
+    _bookID = other._bookID; 
+    _name = other._name;     
+    _author = other._author; 
+    _genre = other._genre;   
+    _borrowed = other._borrowed; 
+
+}
+
 string Book::getBookName() {
     return this->_name;
 }

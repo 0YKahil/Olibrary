@@ -1,7 +1,17 @@
 #include "stdafx.h"
 #include "olibrary.h"
 #include "filter.h"
+#include "successdialog.h"
 #include <iostream>
+
+/*
+ * lastFilter will remember the last view button clicked and is used
+ * for refreshing the book table after removing a book from the library
+ * to add it to the account
+ * 
+ * 0 = viewall, 1 = viewavailable
+ */
+int lastFilter = 0;
 
 /*
  * Helper Function to convert String to Genre enumeration values
@@ -19,7 +29,11 @@ static const Genre stringToGenre(const QString string) {
 
 }
 
-// Sets up sample books for the library to use once instantiated
+/*
+ * Sets up sample books for the library to use once instantiated
+ *
+ * @returns: an array of initial books
+ */
 static vector<Book> setupBooks() {
     vector<Book> initBooks = {
     Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", FANTASY),
@@ -42,7 +56,7 @@ static vector<Book> setupBooks() {
 }
 
 Olibrary::Olibrary(QWidget *parent)
-    : QMainWindow(parent), lib(Library::getInstance()), admin("admin", "admin")
+    : QMainWindow(parent), lib(Library::getInstance()), currentUser("admin", "admin")
 {
     lib.addBooks(setupBooks());
     lib.getBookByID(15)->setBorrowed();
@@ -97,11 +111,12 @@ void Olibrary::setupTableFromList(vector<string> books) {
 
 void Olibrary::on_viewAllButton_clicked() {
     setupTableFromList(lib.viewAllBooks());
-
+    lastFilter = 0;
 }
 
 void Olibrary::on_viewAvailableButton_clicked() {
     setupTableFromList(lib.viewAvailableBooks());
+    lastFilter = 1;
 }
 
 void Olibrary::on_viewFilteredButton_clicked() {
@@ -112,8 +127,31 @@ void Olibrary::on_viewFilteredButton_clicked() {
         if (genre != "Select Genre...") {
             setupTableFromList(lib.viewFilteredBooks(stringToGenre(genre)));
         }
-
     }
+}
+
+void Olibrary::on_addButton_clicked() {
+    QModelIndexList selection = ui.booksTable->selectionModel()->selectedRows();
+    bool booksAdded = false;
+    for (const QModelIndex& row : selection) {
+        QVariant data = row.sibling(row.row(), 0).data();
+        int id = data.toInt();
+        Book* b = lib.getBookByID(id);
+        if (b) {
+            currentUser.addBook(b);
+            booksAdded = true;
+        }
+    }
+
+    if (booksAdded) {
+        successDialog successdialog(this);
+        successdialog.exec();
+    }
+
+    if (lastFilter == 1) {
+        on_viewAvailableButton_clicked();
+    }
+    
 }
 
 

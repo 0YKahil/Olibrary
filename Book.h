@@ -25,6 +25,9 @@ public:
     */
     Book();
 
+    // Copy constructor
+    Book(const Book& other);
+
     // getters
 
     // Returns the ID of the book
@@ -35,6 +38,7 @@ public:
 
     // Returns the Book name
     string getBookName();
+
 
     // Returns the Book author
     string getBookAuthor();

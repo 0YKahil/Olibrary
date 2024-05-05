@@ -100,8 +100,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="filter.cpp" />
+    <ClCompile Include="successdialog.cpp" />
     <ClCompile Include="User.cpp" />
     <QtMoc Include="filter.h" />
+    <QtMoc Include="successdialog.h" />
     <ClInclude Include="User.h" />
     <QtRcc Include="olibrary.qrc" />
     <QtUic Include="filter.ui" />
@@ -112,6 +114,7 @@
     <ClCompile Include="olibrary.cpp" />
     <ClCompile Include="main.cpp" />
     <None Include="Olibrary.ico" />
+    <QtUic Include="successdialog.ui" />
     <ResourceCompile Include="Olibrary.rc" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Library.h" />

@@ -51,10 +51,23 @@ void User::addBook(Book book) {
 
 }
 
+void User::addBook(Book* book) {
+    int id = book->getBookID();
+    Book bookCopy = *book;
+    if (!book->getBorrowed()) {
+        _books.insert({ id, bookCopy });
+        book->setBorrowed();
+    }
+}
+
 void User::removeBook(Book book) {
     _books.erase({ book.getBookID() });
 }
 
+int User::removeBook(int id) {
+    _books.erase({ id });
+    return id;
+}
 
 
 
