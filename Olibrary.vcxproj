@@ -99,9 +99,12 @@
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="filter.cpp" />
     <ClCompile Include="User.cpp" />
+    <QtMoc Include="filter.h" />
     <ClInclude Include="User.h" />
     <QtRcc Include="olibrary.qrc" />
+    <QtUic Include="filter.ui" />
     <QtUic Include="olibrary.ui" />
     <QtMoc Include="olibrary.h" />
     <ClCompile Include="Book.cpp" />

@@ -52,7 +52,6 @@ public:
     void setBookAuthor(string author);
     void setBookGenre(Genre genre);
 
-
 private:
     static int _currentBookID;
     int _bookID;

@@ -1,8 +1,23 @@
 #include "stdafx.h"
 #include "olibrary.h"
+#include "filter.h"
 #include <iostream>
 
+/*
+ * Helper Function to convert String to Genre enumeration values
+ *
+ * @returns: Genre as string
+ */
+static const Genre stringToGenre(const QString string) {
+    if (string == "HORROR") return HORROR;
+    else if (string == "FANTASY") return FANTASY;
+    else if (string == "SCI-FI") return SCI_FI;
+    else if (string == "NON-FICTION") return NON_FICTION;
+    else if (string == "MYSTERY") return MYSTERY;
+    else if (string == "ROMANCE") return ROMANCE;
+    else return OTHER;
 
+}
 
 // Sets up sample books for the library to use once instantiated
 static vector<Book> setupBooks() {
@@ -27,7 +42,7 @@ static vector<Book> setupBooks() {
 }
 
 Olibrary::Olibrary(QWidget *parent)
-    : QMainWindow(parent), lib(Library::getInstance())
+    : QMainWindow(parent), lib(Library::getInstance()), admin("admin", "admin")
 {
     lib.addBooks(setupBooks());
     lib.getBookByID(15)->setBorrowed();
@@ -89,6 +104,16 @@ void Olibrary::on_viewAvailableButton_clicked() {
     setupTableFromList(lib.viewAvailableBooks());
 }
 
+void Olibrary::on_viewFilteredButton_clicked() {
+    filter filter(this);
+    if (filter.exec()) {
+        QString genre = filter.selectGenre->currentText();
+        std::cout << genre.toStdString() << endl;
+        if (genre != "Select Genre...") {
+            setupTableFromList(lib.viewFilteredBooks(stringToGenre(genre)));
+        }
 
+    }
+}
 
 

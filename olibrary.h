@@ -15,6 +15,7 @@ public:
 private:
     Ui::OlibraryClass ui;
     Library& lib;
+    User admin;
 
 protected:
     /*

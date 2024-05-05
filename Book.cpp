@@ -31,6 +31,7 @@ static const string genreToString(const Genre genre) {
     }
 }
 
+
 Book::Book(string name, string author, Genre genre) {
     _bookID = ++_currentBookID;
     _name = name;
