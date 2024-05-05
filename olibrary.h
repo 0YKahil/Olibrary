@@ -51,5 +51,10 @@ private slots:
      */
     void on_viewAvailableButton_clicked();
 
+    /*
+     * Displays a new window to select the Genre needed then once OK is clicked
+     * displays the books with that selected genre in the book table
+     */
+    void on_viewFilteredButton_clicked();
 
 };

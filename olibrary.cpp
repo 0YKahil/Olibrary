@@ -92,5 +92,3 @@ void Olibrary::on_viewAvailableButton_clicked() {
 
 
 
-
-
