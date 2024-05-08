@@ -99,13 +99,16 @@
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="accountdialog.cpp" />
     <ClCompile Include="filter.cpp" />
     <ClCompile Include="successdialog.cpp" />
     <ClCompile Include="User.cpp" />
     <QtMoc Include="filter.h" />
     <QtMoc Include="successdialog.h" />
+    <QtMoc Include="accountdialog.h" />
     <ClInclude Include="User.h" />
     <QtRcc Include="olibrary.qrc" />
+    <QtUic Include="accountdialog.ui" />
     <QtUic Include="filter.ui" />
     <QtUic Include="olibrary.ui" />
     <QtMoc Include="olibrary.h" />

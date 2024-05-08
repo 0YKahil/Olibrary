@@ -24,8 +24,14 @@
     <Filter Include="Source Files\Source Code">
       <UniqueIdentifier>{640d3003-e768-4347-a5d2-26918f20522b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\UI">
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{dedb447a-cd64-4f54-8c07-8b09dc9e0f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
       <UniqueIdentifier>{ae2c4698-6407-44c5-8795-21fd8a933984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Source Files">
+      <UniqueIdentifier>{1eba2747-a7a5-4dd8-bde0-887421ec18bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,18 +41,12 @@
     <QtUic Include="olibrary.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="olibrary.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <None Include="Olibrary.ico">
       <Filter>Resource Files</Filter>
     </None>
     <ResourceCompile Include="Olibrary.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -65,32 +65,44 @@
       <Filter>Source Files\Source Code</Filter>
     </ClCompile>
     <ClCompile Include="filter.cpp">
-      <Filter>Source Files\UI</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="olibrary.cpp">
-      <Filter>Source Files\UI</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="successdialog.cpp">
-      <Filter>Source Files\UI</Filter>
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="accountdialog.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Library.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClInclude>
     <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="filter.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="olibrary.h">
+      <Filter>Header Files\ui</Filter>
     </QtMoc>
     <QtMoc Include="successdialog.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="filter.h">
+      <Filter>Header Files\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="accountdialog.h">
+      <Filter>Header Files\ui</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +110,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="successdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="accountdialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "olibrary.h"
-#include "filter.h"
-#include "successdialog.h"
 #include <iostream>
 
 /*
@@ -152,6 +150,13 @@ void Olibrary::on_addButton_clicked() {
         on_viewAvailableButton_clicked();
     }
     
+}
+
+void Olibrary::on_accountButton_clicked() {
+    accountDialog accountdialog(this);
+    if (accountdialog.exec()) {
+
+    }
 }
 
 

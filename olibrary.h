@@ -3,6 +3,9 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_olibrary.h"
 #include "Library.h"
+#include "filter.h"
+#include "successdialog.h"
+#include "accountdialog.h"
 
 class Olibrary : public QMainWindow
 {
@@ -64,4 +67,10 @@ private slots:
      * and refreshes the table
      */
     void on_addButton_clicked();
+
+    /*
+     * Opens the current account's account widget with a booktable of owned books and
+     * functionality to return the books to the library
+     */
+    void on_accountButton_clicked();
 };
